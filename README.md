@@ -245,17 +245,26 @@ Go to the emulator and start your just installed TiShadow app.
 
 
 ##<a name='resources'>Resources</a> in no particular order.
-[Titanium Appcelerator](http://www.appcelerator.com/) great mobile development platform. 
+[Titanium Appcelerator](http://www.appcelerator.com/) great mobile development platform.
+
 [TiShadow](https://github.com/dbankier/TiShadow) Github page. You guys are stars! 
+
 [Node.js](http://nodejs.org/)
 
+
 [Installing Node.js via package manager](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#ubuntu-mint)
+
 [Installing node.js from binary on Ubuntu](http://anirudhaj.wordpress.com/2013/02/03/installing-node-js-from-binary-on-ubuntu-precise/)
+
 [Automatic TiShadow Installs](https://gist.github.com/kwhinnery/5565515)
+
 [grunt-tishadow](https://npmjs.org/package/grunt-tishadow)
 
 Stephen Feather [TiShadow – Getting Started pt.1](http://www.stephenfeather.com/blog/tishadow-getting-started-part-1/)
 [TiShadow – Getting Started pt.2](http://www.stephenfeather.com/blog/tishadow-getting-started-part-2/)
+
 [Titanium API Documentation](http://docs.appcelerator.com/titanium/3.0/#!/api) mountains of knowledge.
+
+
 
 [back to top](#TOC)
