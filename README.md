@@ -243,6 +243,22 @@ Do not close emulator. Start TiShadow server
 	
 Go to the emulator and start your just installed TiShadow app.
 
+**adb problems**
+
+If `adb` cannot find devices, or does not install an app on the emulator spitting out error message:
+
+	error: device not found
+	- waiting for device -
+
+and the emulator *is* running, probably `adb` daemon died (remember kids a daemon is for life, not just for christmas). Try these two commands with a couple of seconds between them:
+
+	adb kill-server
+	adb start-server
+	
+If the resurrection was successful you should see something like the following message:
+
+	* daemon not running. starting it now on port 5037 *
+	* daemon started successfully *
 
 ##<a name='resources'>Resources</a> in no particular order.
 [Titanium Appcelerator](http://www.appcelerator.com/) great mobile development platform.
