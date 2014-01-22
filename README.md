@@ -10,9 +10,8 @@ Initial idea was to have a point of reference for myself. But it grew and grew t
 	1. [Install TiShadow](#tishadow-install)
 	1. Setup with Titanium studio
 	1. [Setup TiShadow app project in terminal (CLI)](#tishadowapp-setup)
-	1. Generate TiShadow app for the platform of your choice
-		1. Create TiShadow app project
-	1. Build the app for your chosen system	
+	1. [Build TiShadow app for the platform of your choice](#build-tishadow-app)
+	1. Start TiShadow app and TiShadow server 
 1. Using Controller
 1. Using with single emulator/simulator
 1. Using with multiple emulators/simulators
@@ -112,7 +111,9 @@ Test the install
 
 ###Setup with Titanium studio
 
-Disclaimer - my Ti Studio 3.2.0 did not allow me to build the TiShadow app, so this part is theoretical - YMMV 
+Disclaimer - my Ti Studio 3.2.0 did not allow me to build the TiShadow app, so this part is theoretical - YMMV
+So before I write something sensible here - you might want to check second part of this tutorial:
+[TiShadow – Getting Started pt.2](http://www.stephenfeather.com/blog/tishadow-getting-started-part-2/)
 
 **Awaiting content**
 
@@ -148,18 +149,30 @@ To verify that everything went fine check the contents of the folder either in y
 
 	Resources	manifest	modules		platform	tiapp.xml
 
-###Generate TiShadow app for the platform of your choice
+###<a name='build-tishadow-app'>Build TiShadow app for the platform of your choice</a>
+
+Open terminal window if it is not already opened. Navigate to the folder with your TiShadow project (e.g. `$HOME/Titanium_Studio_Workspace/tishadowapp`) and using `titanium` command line tool compile it.  
+**OSX and Ubuntu** type (instead of `titanium` you can also use short version `ti`: 
+
+**IOS**
+
+	titanium build -p ios -T simulator
+	
+Optionally you might also add `-Y iphone` or `-Y ipad` to target specific simulator. By default it should build to iPhone simulator.
+
+**Android**
+
+	titanium build -p android -T emulator
+	
+If you have more than one Android emulator configured you might add `-C nameOfYourEmulator`
+If you are stuck at `[INFO]  Waiting for emulator to become ready` you might try [manual method](#emu-problems) from the [Troubleshooting](#troubleshooting) section.
+
+If you would like to know more about building options type `titanium build -h` in terminal. 
+
+The above should compile and build your TiShadow app and put it on the emulator of your choice.
 
 
-####Create TiShadow app project
-	Still in terminal, 
-	(OSX) type: 
-		mkdir $HOME/Documents/tishadowapp
-		tishadow app -d $HOME/Documents/tishadowapp
-	(Ubuntu)
-**Awaiting content**
-
-###Build the app for your chosen system
+##Start TiShadow app and TiShadow server
 **Awaiting content**
 
 ##Using Controller
@@ -199,7 +212,7 @@ and create a link
 
 	ln /usr/local/lib/node_modules/tishadow/cli/tishadow  /usr/local/bin/tishadow
 	
-**Emulator problems**
+<a name='emu-problems'>**Emulator problems**</a>
 If you are not able to put your compiled TiShadow app on the emulator because the emulator starts too slowly and you see the following message:
 	[INFO]  Waiting for emulator to become ready
 	[ERROR] Emulator failed to start in a timely manner
