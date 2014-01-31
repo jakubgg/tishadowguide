@@ -11,10 +11,10 @@ Initial idea was to have a point of reference for myself. But it grew and grew t
 	1. Setup with Titanium studio
 	1. [Setup TiShadow app project in terminal (CLI)](#tishadowapp-setup)
 	1. [Build TiShadow app for the platform of your choice](#build-tishadow-app)
-	1. Start TiShadow app and TiShadow server 
-1. Using Controller
+	1. [Start TiShadow app and TiShadow server](#tishadow-run)
 1. Using with single emulator/simulator
 1. Using with multiple emulators/simulators
+1. Using Controller
 1. Automation with Grunt/Supervisor
 1. [Troubleshooting](#troubleshooting)
 1. [Resources](#resources)
@@ -172,16 +172,41 @@ If you would like to know more about building options type `titanium build -h` i
 The above should compile and build your TiShadow app and put it on the emulator of your choice.
 
 
-##Start TiShadow app and TiShadow server
-**Awaiting content**
+##<a name='tishadow-run'>Start TiShadow app and TiShadow server</a>
 
-##Using Controller
-**Awaiting content**
+**Start TiShadow server**
+This could not be easier. In the terminal window type:
+
+	tishadow server
+
+You should be greeted with something like `[DEBUG] TiShadow server started. Go to http://localhost:3000`. We will talk about debug Controller in a moment. 
+**Start TiShadow app**
+TiShadow server is running, and presuming you have [successfully build](#build-tishadow-app) your TiShadow app and deployed it to the emulator of your choice, all you need is to touch the TiShadow app icon to start it. 
+
+The app will ask you about the connection to the server.
+**IOS**
+You can type your computer IP (e.g. `192.168.1.10` or localhost address `127.0.0.1`), IOS simulator should work fine with both. 
+
+**Android**
+You need to give it a real IP address (e.g. `192.168.1.10`), otherwise the app will not see the server. 
+
+**Both**
+Once you provide the app with the server address and click `connect`, the app should connect to the server and on the bottom of the screen there should be `connected` message.
+To be absolutely sure, switch to the terminal window with the TiShadow server running, and you should see info message:
+
+	[INFO] [iphone, 7.0.3, xx.xx.xx.xx] Connected
+		
+Where `xx.xx.xx.xx` will be your emulator/simulator IP address. 
+
+Well, now you are ready to push your test app to the TiShadow app. 
 
 ##Using with single emulator
 **Awaiting content**
 
 ##Using with multiple emulators
+**Awaiting content**
+ 
+##Using Controller
 **Awaiting content**
 
 ##Automation with Grunt/Supervisor
