@@ -12,8 +12,8 @@ Initial idea was to have a point of reference for myself. But it grew and grew t
 	1. [Setup TiShadow app project in terminal (CLI)](#tishadowapp-setup)
 	1. [Build TiShadow app for the platform of your choice](#build-tishadow-app)
 	1. [Start TiShadow app and TiShadow server](#tishadow-run)
-1. Using with single emulator/simulator
 1. Using with multiple emulators/simulators
+1. Using with single emulator/simulator
 1. Using Controller
 1. Automation with Grunt/Supervisor
 1. [Troubleshooting](#troubleshooting)
@@ -200,11 +200,34 @@ Where `xx.xx.xx.xx` will be your emulator/simulator IP address.
 
 Well, now you are ready to push your test app to the TiShadow app. 
 
-##Using with single emulator
-**Awaiting content**
-
 ##Using with multiple emulators
-**Awaiting content**
+To push your app to TiShadow, navigate to your app folder and type:
+
+	tishadow run
+	
+That's it! TiShadow should check for you if the project is classic Titanium or Alloy and will compile it accordingly. Then it will push it to the TiShadow server and the server will push it to all connected devices/emulators.
+Once the app is running inside the TiShadow you can make the whole process of testing your changes and deploying the app even snappier. Instead the command above, type:
+
+	tishadow run -u
+
+That will skip the recompilation of the project and instead push only changed files. 
+
+
+##Using with single emulator
+By default when you run `tishadow run` or `tishadow run -u` TiShadow is compiling your app for IOS and Android. If you want speed up the deployment process even more, or perhaps you are working only on a single platform, you can tell TiShadow to target only single system. 
+To do that you have to use `-P` flag (that is upper case 'P', unlike with titanium where it is lower case 'p' `-p`). 
+So, to target only IOS type:
+
+	tishadow run -P ios
+
+and to target Android
+
+	tishadow run -P android
+	
+The above have also a benefit of deploying only to the emulator that is targeted with the `-P` option. So if you have connected Android and IOS emulators and tell TiShadow to `-P ios` it will push your app only to IOS device. 
+
+Feel free to mix it up with the 'update' `-u` option to make it run like a wind. 
+
  
 ##Using Controller
 **Awaiting content**
