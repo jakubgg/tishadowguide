@@ -16,6 +16,7 @@ Initial idea was to have a point of reference for myself. But it grew and grew t
 1. Using with single emulator/simulator
 1. Using Controller
 1. Automation with Grunt/Supervisor
+1. [TiShadow with Sublime Text 2](#ti-with-ST2)
 1. [Troubleshooting](#troubleshooting)
 1. [Resources](#resources)
 
@@ -227,13 +228,33 @@ and to target Android
 The above have also a benefit of deploying only to the emulator that is targeted with the `-P` option. So if you have connected Android and IOS emulators and tell TiShadow to `-P ios` it will push your app only to IOS device. 
 
 Feel free to mix it up with the 'update' `-u` option to make it run like a wind. 
-
+g
  
 ##Using Controller
 **Awaiting content**
 
 ##Automation with Grunt/Supervisor
 **Awaiting content**
+
+##<a name='ti-with-ST2'>TiShadow with Sublime Text 2</a>
+If you use Sublime Text 2 you might try to streamline your workflof even more by using the ST2 `Build` option (`cmd + b` on a Mac, `ctrl + b` on a Linux machine).
+Go to `Tools` -> `Build System` -> `New Build System`. That should open a new document with `.sublime-build` extension. 
+To create full build for iOS copy and paste this snippet:
+
+	{
+		"cmd": ["tishadow run -P ios"],
+		"shell": "bash",
+		"path": "/usr/local/bin/",
+		"working_dir": "$project_path"
+	}
+
+Where `cmd` is the command that will be run in the console. You can alter it to match your needs (e.g. add `-u` option if you want to do just build updates instead of full builds, or `spec` if you run tests).
+`shell` is the shell that will execute the command - `bash` should work almost everywhere.
+`path` is quite important. It is the path to your NodeJS installation, without it your builds will probably fail (especially on OS X).
+Last but not least `working_dir` is the path of your projects, leave it as it is, it will use the path of currently openend project.
+
+Once all is set up as you want it to be, save the build file, give it a meaningfull name (but rather short, as the file name will be used in the `Build System` list to identify your build option).
+Now chose your `Build System` form the list. Once you add any changes to your files press `cmd + b` or `ctrl + b` and ST2 should do the dirty work for you.   
 
 ##<a name='troubleshooting'>Troubleshooting</a>
 
